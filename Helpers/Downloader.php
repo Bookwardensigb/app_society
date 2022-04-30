@@ -1,4 +1,18 @@
 <?php 
+
+
+/*
+|--------------------------------------------------------------------------
+| Downloaders
+|--------------------------------------------------------------------------
+|
+| This file is used to download the files 
+| 
+| 
+|
+*/
+
+
  class Downloader {
        public $baseurl;
        public $filename;
