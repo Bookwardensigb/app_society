@@ -6,8 +6,8 @@
 | Downloaders
 |--------------------------------------------------------------------------
 |
-| This file is used to download the files 
-| 
+| This file is used to download the files. There is three functions. 
+| One to download the files. One to unzip. One to deletefiles. 
 | 
 |
 */
@@ -53,10 +53,6 @@ class Downloader {
         }
     }
 
-$start = new Downloader();
-$start->download();
-$start->unzip();
-$start->deleteFile();
 
 ?> 
 
