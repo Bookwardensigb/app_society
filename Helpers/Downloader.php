@@ -35,6 +35,7 @@ class Downloader {
 
         public function rename() {
             rename(__DIR__. DIRECTORY_SEPARATOR . "telechargement" . DIRECTORY_SEPARATOR . "88fbb6b4-0320-443e-b739-b4376a012c32", __DIR__. DIRECTORY_SEPARATOR . "telechargement" . DIRECTORY_SEPARATOR . "88fbb6b4-0320-443e-b739-b4376a012c32.zip");
+            echo "ok \n";
         }
     
         public function unzip() {
