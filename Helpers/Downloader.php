@@ -23,20 +23,24 @@ class Downloader {
 
        public function download() {
             echo "Start downloading \n";
-            $url = "https://elementaire.ijclab.in2p3.fr/wp-content/uploads/sites/5/2016/06/web.zip";
+            $url = "https://www.data.gouv.fr/fr/datasets/r/88fbb6b4-0320-443e-b739-b4376a012c32";
             $filename = basename($url);
             $filecontent = file_get_contents($url);
-            $directorydownload = "telechargement/";
-           if(file_put_contents($directorydownload . $filename, $filecontent)) 
+            $filepath = (__DIR__. DIRECTORY_SEPARATOR . "telechargement" . DIRECTORY_SEPARATOR);
+           if(file_put_contents($filepath . $filename, $filecontent)) 
             {echo "Fichier téléchargé avec succès \n";} 
             else 
             {echo "Fichier non téléchargé \n";} 
         }
+
+        public function rename() {
+            rename(__DIR__. DIRECTORY_SEPARATOR . "telechargement" . DIRECTORY_SEPARATOR . "88fbb6b4-0320-443e-b739-b4376a012c32", __DIR__. DIRECTORY_SEPARATOR . "telechargement" . DIRECTORY_SEPARATOR . "88fbb6b4-0320-443e-b739-b4376a012c32.zip");
+        }
     
         public function unzip() {
             $zip = new ZipArchive;
-            if ($zip->open('telechargement/web.zip') === TRUE) {
-                $zip->extractTo('telechargement/');
+            if ($zip->open(__DIR__. DIRECTORY_SEPARATOR . "telechargement" . DIRECTORY_SEPARATOR . "88fbb6b4-0320-443e-b739-b4376a012c32.zip") === TRUE) {
+                $zip->extractTo(__DIR__. DIRECTORY_SEPARATOR. "telechargement" . DIRECTORY_SEPARATOR);
                 $zip->close();
                 echo "ok \n";
             } else {
@@ -45,15 +49,13 @@ class Downloader {
         }
 
         public function deleteFile(){
-            If (unlink('telechargement/web.zip')) {
+            If (unlink(__DIR__. DIRECTORY_SEPARATOR. "telechargement".DIRECTORY_SEPARATOR. "88fbb6b4-0320-443e-b739-b4376a012c32.zip")) {
                 echo "file was successfully deleted\n";
               } else {
                 echo "there was a problem deleting the file\n";
               }
         }
     }
-
-
 ?> 
 
 
